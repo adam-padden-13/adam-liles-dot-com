@@ -1,5 +1,5 @@
 import AdamLogo1 from "@/assets/adam-logo-1.svg?react"
-import AdamGtr from "@/assets/adam-gtr.jpg"
+import AdamGtr from "@/assets/adam-gtr.png"
 import MusicSection from "./sections/music-section/MusicSection"
 
 export function App() {
