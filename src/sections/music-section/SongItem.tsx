@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/item"
 import { useAudioPlayer } from "@/components/audio-player/audioPlayerStore"
 import Wave from "@/assets/wave.svg?react"
-import { LucidePause } from "lucide-react"
+import { LucidePlayCircle } from "lucide-react"
 
 interface SongItemProps {
   song: Song
@@ -33,7 +33,15 @@ const SongItem = ({ song, selectSong }: SongItemProps) => {
         <ItemDescription>{song.description}</ItemDescription>
       </ItemContent>
       <ItemActions>
-        {isSelected ? <Wave className="w-16 text-primary" /> : <LucidePause />}
+        {isSelected ? (
+          <Wave className="w-16 text-primary" />
+        ) : (
+          <LucidePlayCircle
+            aria-label="play music"
+            size={40}
+            onClick={handleSelect}
+          />
+        )}
       </ItemActions>
     </Item>
   )
