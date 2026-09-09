@@ -144,6 +144,24 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@layer components {
+  .rhap_time {
+    color: var(--primary) !important;
+    font-size: 12px !important;
+  }
+
+  .rhap_progress-bar {
+    background-color: var(--muted) !important;
+  }
+
+  .rhap_progress-filled,
+  .rhap_progress-indicator,
+  .rhap_volume-bar,
+  .rhap_volume-indicator {
+    background-color: var(--primary) !important;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

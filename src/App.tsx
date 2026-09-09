@@ -1,12 +1,45 @@
 import AdamLogo1 from "@/assets/adam-logo-1.svg?react"
 import AdamGtr from "@/assets/adam-gtr.png"
 import MusicSection from "./sections/music-section/MusicSection"
+import PlayerControls from "./components/audio-player/PlayerControls"
+import React from "react"
+import { useTheme } from "./components/theme-provider"
+import { useAudioPlayer } from "./components/audio-player/audioPlayerStore"
 
 export function App() {
+  const [resolvedTheme, setResolvedTheme] = React.useState<"light" | "dark">(
+    "light"
+  )
+  const theme = useTheme()
+
+  const { currentSong } = useAudioPlayer()
+
+  // TODO: set resolved theme in global state with zustand
+  React.useEffect(() => {
+    const resolveTheme = () => {
+      if (theme.theme === "system") {
+        const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+        setResolvedTheme(isDark ? "dark" : "light")
+      } else {
+        setResolvedTheme(theme.theme)
+      }
+    }
+
+    resolveTheme()
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
+    mediaQuery.addEventListener("change", resolveTheme)
+    return () => mediaQuery.removeEventListener("change", resolveTheme)
+  }, [theme.theme])
+
   return (
-    <main className="mx-auto flex min-h-svh w-full max-w-280 flex-col gap-6 p-6">
+    <main
+      className={`mx-auto flex min-h-svh max-w-280 flex-col gap-6 px-5 pt-4 ${currentSong ? "pb-26" : "pb-6"} `}
+    >
       <header className="flex justify-center">
-        <AdamLogo1 className="block h-auto w-full max-w-180 text-theme-blue" />
+        <span className="flex flex-col items-center">
+          <AdamLogo1 className="block h-auto w-full max-w-180 text-theme-blue" />
+          <h2 className="-mt-1 font-semibold">MUSICIAN | COMPOSER | CREATOR</h2>
+        </span>
       </header>
       <section className="flex flex-col gap-4 sm:flex-row">
         <div>
@@ -39,6 +72,9 @@ export function App() {
       <section>
         <h3>Scores</h3>
       </section>
+      <div>
+        {currentSong && <PlayerControls resolvedTheme={resolvedTheme} />}
+      </div>
     </main>
   )
 }

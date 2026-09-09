@@ -8,8 +8,11 @@ import {
 } from "@/components/ui/card"
 import type { Song } from "@/types/Song"
 import SongItem from "./SongItem"
+import { useAudioPlayer } from "@/components/audio-player/audioPlayerStore"
 
 const MusicSection = () => {
+  const { setCurrentSong } = useAudioPlayer()
+
   const songs: Song[] = [
     {
       id: 1,
@@ -67,7 +70,13 @@ const MusicSection = () => {
       <CardContent>
         <section className="flex flex-col gap-2">
           {songs.map((song) => (
-            <SongItem key={song.id} song={song} selectSong={() => {}} />
+            <SongItem
+              key={song.id}
+              song={song}
+              selectSong={() => {
+                setCurrentSong(song)
+              }}
+            />
           ))}
         </section>
       </CardContent>

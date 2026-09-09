@@ -6,7 +6,7 @@ import {
   ItemDescription,
   ItemTitle,
 } from "@/components/ui/item"
-// import { useAudioPlayer } from "../stores/audioPlayerStore"
+import { useAudioPlayer } from "@/components/audio-player/audioPlayerStore"
 import Wave from "@/assets/wave.svg?react"
 import { LucidePause } from "lucide-react"
 
@@ -16,10 +16,9 @@ interface SongItemProps {
 }
 
 const SongItem = ({ song, selectSong }: SongItemProps) => {
-  // const { currentSong } = useAudioPlayer()
+  const { currentSong } = useAudioPlayer()
 
-  // const isSelected = song.id === currentSong?.id
-  const isSelected = false
+  const isSelected = song.id === currentSong?.id
 
   const handleSelect = () => {
     selectSong()
