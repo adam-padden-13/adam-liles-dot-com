@@ -1,0 +1,43 @@
+import type { Song } from "@/types/Song"
+import {
+  ItemActions,
+  Item,
+  ItemContent,
+  ItemDescription,
+  ItemTitle,
+} from "@/components/ui/item"
+// import { useAudioPlayer } from "../stores/audioPlayerStore"
+import Wave from "@/assets/wave.svg?react"
+import { LucidePause } from "lucide-react"
+
+interface SongItemProps {
+  song: Song
+  selectSong: () => void
+}
+
+const SongItem = ({ song, selectSong }: SongItemProps) => {
+  // const { currentSong } = useAudioPlayer()
+
+  // const isSelected = song.id === currentSong?.id
+  const isSelected = false
+
+  const handleSelect = () => {
+    selectSong()
+  }
+
+  return (
+    <Item className={`bg-background shadow-sm`}>
+      <ItemContent className={`w-full`} onClick={handleSelect}>
+        <ItemTitle>
+          {song.title} - {song.collectionName}
+        </ItemTitle>
+        <ItemDescription>{song.description}</ItemDescription>
+      </ItemContent>
+      <ItemActions>
+        {isSelected ? <Wave className="w-16 text-primary" /> : <LucidePause />}
+      </ItemActions>
+    </Item>
+  )
+}
+
+export default SongItem
