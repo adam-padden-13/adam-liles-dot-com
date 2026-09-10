@@ -15,10 +15,7 @@ const MusicSection = () => {
   const { setCurrentSong, songs, setSongs } = useAudioPlayer()
   useEffect(() => {
     fetchRecordings().then((response) => {
-      console.log(response)
-      if (response && response?.length > 0) {
-        setSongs(response)
-      }
+      if (response && response?.length > 0) setSongs(response)
     })
   }, [])
 
@@ -43,7 +40,6 @@ const MusicSection = () => {
           ))}
         </section>
       </CardContent>
-
       <CardFooter className="flex w-full justify-center gap-4"></CardFooter>
     </Card>
   )

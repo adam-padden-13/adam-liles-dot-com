@@ -25,7 +25,9 @@ const SongItem = ({ song, selectSong }: SongItemProps) => {
   }
 
   return (
-    <Item className={`bg-background shadow-sm`}>
+    <Item
+      className={`border bg-background ${isSelected ? "shadow-elevated dark:shadow-theme-blue" : "shadow-sm"} `}
+    >
       <ItemContent className={`w-full`} onClick={handleSelect}>
         <ItemTitle>{song.title}</ItemTitle>
         <ItemTitle className="font-normal">{song.collectionName}</ItemTitle>

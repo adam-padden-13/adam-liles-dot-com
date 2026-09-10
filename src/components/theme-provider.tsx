@@ -9,6 +9,7 @@ type ThemeProviderProps = {
   defaultTheme?: Theme
   storageKey?: string
   disableTransitionOnChange?: boolean
+  disableDarkMode?: boolean
 }
 
 type ThemeProviderState = {
@@ -82,9 +83,14 @@ export function ThemeProvider({
   defaultTheme = "system",
   storageKey = "theme",
   disableTransitionOnChange = true,
+  disableDarkMode = false,
   ...props
 }: ThemeProviderProps) {
   const [theme, setThemeState] = React.useState<Theme>(() => {
+    if (disableDarkMode) {
+      return "light"
+    }
+
     const storedTheme = localStorage.getItem(storageKey)
     if (isTheme(storedTheme)) {
       return storedTheme
@@ -95,17 +101,21 @@ export function ThemeProvider({
 
   const setTheme = React.useCallback(
     (nextTheme: Theme) => {
-      localStorage.setItem(storageKey, nextTheme)
-      setThemeState(nextTheme)
+      const appliedTheme = disableDarkMode ? "light" : nextTheme
+      localStorage.setItem(storageKey, appliedTheme)
+      setThemeState(appliedTheme)
     },
-    [storageKey]
+    [disableDarkMode, storageKey]
   )
 
   const applyTheme = React.useCallback(
     (nextTheme: Theme) => {
       const root = document.documentElement
-      const resolvedTheme =
-        nextTheme === "system" ? getSystemTheme() : nextTheme
+      const resolvedTheme = disableDarkMode
+        ? "light"
+        : nextTheme === "system"
+          ? getSystemTheme()
+          : nextTheme
       const restoreTransitions = disableTransitionOnChange
         ? disableTransitionsTemporarily()
         : null
@@ -117,7 +127,7 @@ export function ThemeProvider({
         restoreTransitions()
       }
     },
-    [disableTransitionOnChange]
+    [disableDarkMode, disableTransitionOnChange]
   )
 
   React.useEffect(() => {
@@ -140,6 +150,10 @@ export function ThemeProvider({
   }, [theme, applyTheme])
 
   React.useEffect(() => {
+    if (disableDarkMode) {
+      return undefined
+    }
+
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.repeat) {
         return
@@ -177,7 +191,7 @@ export function ThemeProvider({
     return () => {
       window.removeEventListener("keydown", handleKeyDown)
     }
-  }, [storageKey])
+  }, [disableDarkMode, storageKey])
 
   React.useEffect(() => {
     const handleStorageChange = (event: StorageEvent) => {
@@ -189,12 +203,12 @@ export function ThemeProvider({
         return
       }
 
-      if (isTheme(event.newValue)) {
+      if (!disableDarkMode && isTheme(event.newValue)) {
         setThemeState(event.newValue)
         return
       }
 
-      setThemeState(defaultTheme)
+      setThemeState(disableDarkMode ? "light" : defaultTheme)
     }
 
     window.addEventListener("storage", handleStorageChange)
@@ -202,7 +216,7 @@ export function ThemeProvider({
     return () => {
       window.removeEventListener("storage", handleStorageChange)
     }
-  }, [defaultTheme, storageKey])
+  }, [defaultTheme, disableDarkMode, storageKey])
 
   const value = React.useMemo(
     () => ({

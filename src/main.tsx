@@ -8,7 +8,7 @@ import "react-h5-audio-player/lib/styles.css"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ThemeProvider>
+    <ThemeProvider disableDarkMode>
       <App />
     </ThemeProvider>
   </StrictMode>
