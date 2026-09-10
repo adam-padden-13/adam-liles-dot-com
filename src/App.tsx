@@ -5,6 +5,8 @@ import PlayerControls from "./components/audio-player/PlayerControls"
 import React from "react"
 import { useTheme } from "./components/theme-provider"
 import { useAudioPlayer } from "./components/audio-player/audioPlayerStore"
+import VideoSection from "./sections/composition-section/CompositionsSection"
+import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card"
 
 export function App() {
   const [resolvedTheme, setResolvedTheme] = React.useState<"light" | "dark">(
@@ -68,9 +70,24 @@ export function App() {
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
       </section>
-      <MusicSection />
       <section>
-        <h3>Scores</h3>
+        <MusicSection />
+      </section>
+      <section>
+        <VideoSection />
+      </section>
+      <section>
+        <Card className="w-full shadow-md dark:shadow-elevated">
+          <CardHeader className="text-center">
+            <CardTitle className="text-center">CONTACT</CardTitle>
+          </CardHeader>
+          <CardContent className="flex flex-col items-center gap-2">
+            <span>
+              <a href="mailto:adamliles123@gmail.com">adamliles123@gmail.com</a>
+            </span>
+            <span> 123-123-2323</span>
+          </CardContent>
+        </Card>
       </section>
       <div>
         {currentSong && <PlayerControls resolvedTheme={resolvedTheme} />}

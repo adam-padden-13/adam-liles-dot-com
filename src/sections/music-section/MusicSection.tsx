@@ -2,7 +2,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -40,7 +39,6 @@ const MusicSection = () => {
           ))}
         </section>
       </CardContent>
-      <CardFooter className="flex w-full justify-center gap-4"></CardFooter>
     </Card>
   )
 }
