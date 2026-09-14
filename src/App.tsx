@@ -52,22 +52,16 @@ export function App() {
           />
         </div>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          I am a senior music technology student studying at Wayne State
+          University. As I begin my last semester, I wanted to put together a
+          portfolio to showcase my work. Below you will find a collection of
+          diﬀerent examples demonstrating my ability to compose, record, mix,
+          and perform diﬀerent styles of music.
           <br />
-          <br />
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          <br />I also carry experience as a live sound engineer. From setting
+          up, to mixing, to streaming, to syncing audio to video. I currently
+          work at a number of diﬀerent venues in metro Detroit, mixing punk
+          shows to full orchestras and everything in-between.
         </p>
       </section>
       <section>

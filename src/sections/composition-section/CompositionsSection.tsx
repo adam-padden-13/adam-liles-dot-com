@@ -26,7 +26,7 @@ const CompositionsSection = () => {
             title={selectedVideo.title}
             style={{ width: "100%", maxWidth: 1000 }}
           />
-          <span className="text-2xl font-bold">{selectedVideo.title}</span>
+          <span className="text-md font-bold">{selectedVideo.title}</span>
           <Carousel
             opts={{
               align: "start",
