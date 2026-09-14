@@ -9,7 +9,6 @@ import SongItem from "./SongItem"
 import { useAudioPlayer } from "@/components/audio-player/audioPlayerStore"
 import { fetchRecordings } from "@/components/audio-player/AudioPlayerService"
 import { useEffect } from "react"
-import type { Song } from "@/types/Song"
 
 const MusicSection = () => {
   const { setCurrentSong, songs, setSongs } = useAudioPlayer()
