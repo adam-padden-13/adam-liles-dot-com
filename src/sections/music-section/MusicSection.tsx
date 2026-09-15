@@ -28,7 +28,7 @@ const MusicSection = () => {
   )
 
   return (
-    <div className="w-full shadow-md dark:shadow-elevated">
+    <div className="flex w-full flex-col gap-4 shadow-md dark:shadow-elevated">
       <Card className="flex flex-col gap-2">
         <CardHeader className="text-center">
           <CardTitle className="text-center font-bold">

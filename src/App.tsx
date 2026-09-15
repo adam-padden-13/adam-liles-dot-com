@@ -35,12 +35,14 @@ export function App() {
 
   return (
     <main
-      className={`mx-auto flex min-h-svh max-w-280 flex-col gap-6 px-5 pt-4 ${currentSong ? "pb-26" : "pb-6"} `}
+      className={`mx-auto flex min-h-svh max-w-280 flex-col gap-8 px-5 pt-4 ${currentSong ? "pb-26" : "pb-6"} `}
     >
       <header className="flex justify-center">
         <span className="flex flex-col items-center">
           <AdamLogo1 className="block h-auto w-full max-w-180 text-theme-blue" />
-          <h2 className="-mt-1 font-semibold">MUSICIAN | COMPOSER | CREATOR</h2>
+          <h2 className="-mt-1 font-semibold">
+            MUSICIAN | COMPOSER | AUDIO ENGINEER
+          </h2>
         </span>
       </header>
       <section className="flex flex-col gap-4 sm:flex-row">
