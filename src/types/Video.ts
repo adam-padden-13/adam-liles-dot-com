@@ -2,6 +2,7 @@ export interface Video {
   id: string
   title: string
   thumbnailURL: string
+  description?: string
 }
 
 export const VIDEOS: Video[] = [
@@ -9,6 +10,7 @@ export const VIDEOS: Video[] = [
     id: "ZAagFaGGpY0",
     title: "YWHAL Student Film - Score",
     thumbnailURL: "https://i3.ytimg.com/vi/ZAagFaGGpY0/maxresdefault.jpg",
+    description: "This was a film that I scored for a classmate.",
   },
   {
     id: "P_oIg9AbXLg",

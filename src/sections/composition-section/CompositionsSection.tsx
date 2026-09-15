@@ -26,7 +26,8 @@ const CompositionsSection = () => {
             title={selectedVideo.title}
             style={{ width: "100%", maxWidth: 1000 }}
           />
-          <span className="text-md font-bold">{selectedVideo.title}</span>
+          <span className="text-md font-bold">{selectedVideo.title}ddd</span>
+          <span className="text-sm">{selectedVideo.description}</span>
           <Carousel
             opts={{
               align: "start",
@@ -54,6 +55,9 @@ const CompositionsSection = () => {
                         </div>
                         <span className="line-clamp-2 min-h-8 text-center text-xs font-semibold">
                           {video.title}
+                        </span>
+                        <span className="line-clamp-2 min-h-8 text-center text-xs">
+                          {video.description}
                         </span>
                       </CardContent>
                     </Card>
