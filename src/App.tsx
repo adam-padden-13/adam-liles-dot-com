@@ -81,6 +81,7 @@ export function App() {
             <span>
               <a href="mailto:adamliles123@gmail.com">adamliles123@gmail.com</a>
             </span>
+            <span>586-872-4578</span>
           </CardContent>
         </Card>
       </section>
