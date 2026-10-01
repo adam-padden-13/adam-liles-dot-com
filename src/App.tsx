@@ -7,6 +7,7 @@ import { useTheme } from "./components/theme-provider"
 import { useAudioPlayer } from "./components/audio-player/audioPlayerStore"
 import VideoSection from "./sections/composition-section/CompositionsSection"
 import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card"
+import SkillsSection from "./sections/SkillsSection"
 
 export function App() {
   const [resolvedTheme, setResolvedTheme] = React.useState<"light" | "dark">(
@@ -55,16 +56,18 @@ export function App() {
         </div>
         <p>
           I am a senior music technology student studying at Wayne State
-          University. As I begin my last semester, I wanted to put together a
-          portfolio to showcase my work. Below you will find a collection of
-          diﬀerent examples demonstrating my ability to compose, record, mix,
-          and perform diﬀerent styles of music.
+          University. Below you will find a collection of diﬀerent examples
+          demonstrating my ability to compose, record, mix, and perform diﬀerent
+          styles of music.
           <br />
           <br />I also carry experience as a live sound engineer. From setting
           up, to mixing, to streaming, to syncing audio to video. I currently
           work at a number of diﬀerent venues in metro Detroit, mixing punk
           shows to full orchestras and everything in-between.
         </p>
+      </section>
+      <section>
+        <SkillsSection />
       </section>
       <section>
         <MusicSection />

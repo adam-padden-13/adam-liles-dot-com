@@ -7,13 +7,6 @@ export interface Video {
 
 export const VIDEOS: Video[] = [
   {
-    id: "ZAagFaGGpY0",
-    title: "YWHAL Student Film - Score",
-    thumbnailURL: "https://i3.ytimg.com/vi/ZAagFaGGpY0/maxresdefault.jpg",
-    description:
-      "This was a student film created by students at Wayne state university. I wrote and recorded the score for this movie.",
-  },
-  {
     id: "P_oIg9AbXLg",
     title: "Mulholland Drive - Score",
     thumbnailURL: "https://i3.ytimg.com/vi/P_oIg9AbXLg/hqdefault.jpg",
@@ -26,6 +19,13 @@ export const VIDEOS: Video[] = [
     thumbnailURL: "https://i3.ytimg.com/vi/zmWKFf1C_QY/maxresdefault.jpg",
     description:
       "This was a project where I stripped the audio and focused on my own original sound design. All sounds done by me.",
+  },
+  {
+    id: "ZAagFaGGpY0",
+    title: "YWHAL Student Film - Score",
+    thumbnailURL: "https://i3.ytimg.com/vi/ZAagFaGGpY0/maxresdefault.jpg",
+    description:
+      "This was a student film created by students at Wayne state university. I wrote and recorded the score for this movie.",
   },
   {
     id: "JRQIo2dG8Sg",
