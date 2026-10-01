@@ -32,7 +32,7 @@ const MusicSection = () => {
       <Card className="flex flex-col gap-2">
         <CardHeader className="text-center">
           <CardTitle className="text-center font-bold">
-            Pia - Wayne State Session
+            Pia the Band - Wayne State Session
           </CardTitle>
           <CardDescription>
             These recordings are a series of songs written and performed by the
